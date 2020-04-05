@@ -105,15 +105,15 @@ int main ()
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud = CreateData(points);
 
 	KdTree* tree = new KdTree;
-  
-    for (int i=0; i<points.size(); i++)
-    	tree->insert(points[i],i); 
 
-  	int it = 0;
-  	render2DTree(tree->root,viewer,window, it);
+    for (int i=0; i<points.size(); i++)
+        tree->insert(points[i],i);
+
+    int it = 0;
+    render2DTree(tree->root,viewer,window, it);
   
   	std::cout << "Test Search" << std::endl;
-  	std::vector<int> nearby = tree->search({-6,7},3.0);
+    std::vector<int> nearby = tree->search({-6,7},3.0);
   	for(int index : nearby)
       std::cout << index << ",";
   	std::cout << std::endl;
